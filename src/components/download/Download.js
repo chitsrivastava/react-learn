@@ -2,7 +2,7 @@ import React from "react";
 // import GetAppIcon from "@material-ui/icons/GetApp";
 import "./Download.css";
 
-export class Download extends React.Component {
+export default class Download extends React.Component {
   render() {
     return (
       <div className="main-div">

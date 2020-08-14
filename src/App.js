@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
-import {Download} from './Download'
+import Notification from './components/notification/Notification'
 
 function App() {
   return (
-    <Download></Download>
+    // <Download></Download>
+
+    <Notification></Notification>
   );
 }
 

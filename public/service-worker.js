@@ -10,6 +10,9 @@ var STATIC_FILES = [
 ];
 
 self.addEventListener('install', function (event) {
+  //added to prevent manually clicking "skipWaiting" when sw was updated  
+  self.skipWaiting();
+
   console.log('[Service Worker] Installing Service Worker ...', event);
   event.waitUntil(
     caches.open(CACHE_STATIC_NAME)
@@ -63,7 +66,7 @@ self.addEventListener('push', function(e) {
     ]
   };
   e.waitUntil(
-    self.registration.showNotification('Hello world!', options)
+    self.registration.showNotification('Welcome to JDF!', options)
   );
 });
 
@@ -72,6 +75,13 @@ self.addEventListener('notificationclick', function(event) {
   console.log('On notification click: ', event.notification.tag);
   event.notification.close();
 
+  var action = event.action;
+  console.log(action)
+
+  if(action==='close'){
+    event.notification.close();
+  }
+  else{
   // This looks to see if the current is already open and
   // focuses if it is
   event.waitUntil(clients.matchAll({
@@ -79,12 +89,14 @@ self.addEventListener('notificationclick', function(event) {
   }).then(function(clientList) {
     for (var i = 0; i < clientList.length; i++) {
       var client = clientList[i];
-      if (client.url == 'http://localhost:3000/' && 'focus' in client)
+      if (client.url == 'http://localhost:3000/login' && 'focus' in client)
         return client.focus();
     }
     if (clients.openWindow)
-      return clients.openWindow('/');
+      return clients.openWindow('http://localhost:3000/login');
   }));
+}
+
 });
 // self.addEventListener('push',event=>{
 // console.log(event.data.text());
@@ -94,9 +106,9 @@ self.addEventListener('notificationclick', function(event) {
 // })
 
 self.addEventListener('fetch', function (event) {
-console.log('insite sw fetch' , event);
+console.log('insite sw fetch' );
 });
 
 self.addEventListener('sync', function(event) {
-  console.log('inside sw sync ', event);
+  console.log('inside sw sync ');
 });

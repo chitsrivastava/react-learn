@@ -1,0 +1,14 @@
+.main-div{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+button{
+    background-color: #5abd2f;
+    color: white;
+}
+
+.jdf-title{
+color: #5abd2f !important;
+}

@@ -1,12 +1,16 @@
 import React from "react";
 // import GetAppIcon from "@material-ui/icons/GetApp";
 import "./Notification.css";
+const webpush = require('web-push');
 
 export default class Notification extends React.Component {
 
   constructor(props){
     super(props);
-  }
+      // VAPID keys should only be generated only once.
+      const validKeys = webpush.generateVAPIDKeys();
+      console.log("WEB-PUSH",validKeys);
+      }
 
      displayConfirmNotification() {
 

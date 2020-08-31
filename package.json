@@ -1,5 +1,6 @@
 {
   "name": "download-file",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +12,8 @@
     "react-dom": "^16.13.1",
     "react-pdf": "^4.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "web-push": "^3.4.4"
   },
   "scripts": {
     "start": "react-scripts start",

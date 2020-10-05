@@ -12,9 +12,6 @@ var STATIC_FILES = [
 self.addEventListener('install', function (event) {
   //added to prevent manually clicking "skipWaiting" when sw was updated  
 
-
-
-
   self.skipWaiting();
 
   console.log('[Service Worker] Installing Service Worker ...', event);
